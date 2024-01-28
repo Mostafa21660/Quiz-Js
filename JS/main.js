@@ -49,15 +49,6 @@ function getIngredients() {
 console.log("Getting ingredients");
 }
 
-// // Function to show contacts and close side nav
-// function showContacts() {
-//     document.getElementById('#contact').classList.remove('d-none')
-//     console.log("Showing contacts");
-
-// }
-
-
-
 // Function to fetch and display meals
 async function getRecipes() {
 
@@ -532,7 +523,77 @@ async function getAreas() {
       }
     }
   }
+
+// Function to get Ingredients list 
+async function getIngredientsList() {
+    try {
+      const response = await fetch('https://www.themealdb.com/api/json/v1/1/list.php?i=list');
+      const data = await response.json();
   
+      if (data.meals) {
+        const limitedIngredients = data.meals.slice(0, 20); // Limit to 20 ingredients
+        displayIngredientsList(limitedIngredients);
+      }
+    } catch (error) {
+      console.error(`Error fetching Ingredients list: ${error.message}`);
+    }
+  }
+  
+  // Function to display Ingredients list
+  function displayIngredientsList(ingredients) {
+    const rowContainer = $("#rowData");
+    rowContainer.empty(); // Clear existing meals
+  
+    for (let i = 0; i < ingredients.length; i++) {
+      const ingredient = ingredients[i];
+      const description = ingredient.strDescription ? truncateDescription(ingredient.strDescription, 20) : '';
+      const ingredientElement = `
+        <div class="col-md-3">
+          <div class="rounded-2 text-center cursor-pointer" onclick="getIngredientsMeals('${ingredient.strIngredient}')">
+            <i class="fa-solid fa-drumstick-bite fa-4x"></i>
+            <h3>${ingredient.strIngredient}</h3>
+            <p>${description}</p>
+          </div>
+        </div>
+      `;
+  
+      rowContainer.append(ingredientElement);
+    }
+  }
+  
+  // Function to truncate description to a specified word limit
+  function truncateDescription(description, wordLimit) {
+    const words = description.split(' ');
+    const truncatedWords = words.slice(0, wordLimit);
+    return truncatedWords.join(' ');
+  }
+  
+  // Function to get meals based on ingredient
+  async function getIngredientsMeals(ingredient) {
+    const rowContainer = $("#rowData");
+    rowContainer.empty(); // Clear existing meals
+  
+    try {
+      const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`);
+      const data = await response.json();
+  
+      if (data.meals) {
+        displayMealsWithDetails(data.meals);
+      }
+    } catch (error) {
+      console.error(`Error fetching meals by ingredient: ${error.message}`);
+    }
+  }
+  
+
+  
+  function getIngredients() {
+    $('#searchContainer').hide();
+    getIngredientsList();    
+    console.log("Getting ingredients");
+}
+
+
 $(document).ready(function () {
 
 
