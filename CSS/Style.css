@@ -1,0 +1,38 @@
+body{
+  background-color: black;
+}
+
+.bg-black{
+  background-color: black;
+}
+
+.meal-layer{
+  background-color: rgba(128, 128, 128, 0.69);
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transform: translateY(100%);
+  transition: all 0.75s;
+}
+
+.meal:hover .meal-layer{
+  transform: translateY(0);
+}
+
+.side-nav-menu .links li {
+  transition: all 1s;
+}
+
+.side-nav-menu {
+  transition: all 1s;
+
+}
+
+.z-ind{
+  z-index: 50;
+}
+
+.side-nav-menu{
+  z-index: 100;
+}

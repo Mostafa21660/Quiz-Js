@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/all.min.css">
+    <link rel="stylesheet" href="CSS/Style.css">
+</head>
+<body>
+
+  <!-- Nav Bar -->
+  <div class="side-nav-menu min-vh-100 position-fixed d-flex top-0">
+    <div class="nav-tab bg-black d-flex flex-column justify-content-between min-vh-100 p-4">
+        <div class="links">
+            <ul class="list-unstyled overflow-hidden text-white">
+                <li onclick="showSearchInputs(); closeSideNav()" class="py-2 position-relative cursor-pointer" >Search</li>
+                <li onclick="getCategories(); closeSideNav()" class="py-2 position-relative cursor-pointer" style="top: 300px;">Categories</li>
+                <li onclick="getArea(); closeSideNav()" class="py-2 position-relative cursor-pointer" style="top: 300px;">Area</li>
+                <li onclick="getIngredients(); closeSideNav()" class="py-2 position-relative cursor-pointer" style="top: 300px;">Ingredients</li>
+                <li onclick="showContacts(); closeSideNav()" class="py-2 position-relative cursor-pointer" style="top: 300px;">Contact Us</li>
+            </ul>
+        </div>
+        <div class="nav-footer">
+            <div class="icons">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter "></i>
+                <i class="fa-solid fa-globe"></i>
+            </div>
+            <div class="footer">
+                <p>Copyright Â© 2019 All Rights <br>Reserved.</p>
+            </div>
+        </div>
+    </div>
+    <div class="nav-header d-flex flex-column justify-content-between py-4 text-center px-2 bg-white text-black">
+        <i class="fa-solid fa-smile fa-align-justify fa-2x"></i>
+        <i class="fa-solid open-close-icon fa-align-justify fa-2x"></i>
+        <div>
+            <i class="fa-solid fa-globe d-block"></i>
+            <i class="fa-solid fa-share-nodes"></i>
+        </div>
+    </div>
+</div>
+
+<div class="container w-75" id="searchContainer">
+  <div class="row py-4 ">
+      <div class="col-md-6 ">
+          <input onkeyup="searchByName(this.value)" class="form-control bg-transparent text-white" type="text" placeholder="Search By Name">
+      </div>
+      <div class="col-md-6">
+          <input onkeyup="searchByFLetter(this.value)" maxlength="1" class="form-control bg-transparent text-white" type="text" placeholder="Search By First Letter">
+      </div>
+  </div></div>
+  <div class="container">
+    <div class="row py-5 g-4" id="rowData">
+      
+      <!-- Contact d-none-->
+      <div id="contact" class="contact min-vh-100 d-flex justify-content-center align-items-center d-none">
+        <div class="container w-75 text-center">
+            <div class="row g-4">
+                <!-- Add onkeyup attribute to each input element -->
+                <div class="col-md-6">
+                    <input id="nameInput" onkeyup="inputsValidation(this)" type="text" class="form-control" placeholder="Enter Your Name">
+                    <div id="nameAlert" class="alert alert-danger w-100 mt-2 d-none">
+                        Special characters and numbers not allowed
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <input id="emailInput" onkeyup="inputsValidation(this)" type="email" class="form-control" placeholder="Enter Your Email">
+                    <div id="emailAlert" class="alert alert-danger w-100 mt-2 d-none">
+                        Email not valid *example@yyy.zzz
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <input id="phoneInput" onkeyup="inputsValidation(this)" type="text" class="form-control" placeholder="Enter Your Phone">
+                    <div id="phoneAlert" class="alert alert-danger w-100 mt-2 d-none">
+                        Enter valid Phone Number
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <input id="ageInput" onkeyup="inputsValidation(this)" type="number" class="form-control" placeholder="Enter Your Age">
+                    <div id="ageAlert" class="alert alert-danger w-100 mt-2 d-none">
+                        Enter valid age
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <input id="passwordInput" onkeyup="inputsValidation(this)" type="password" class="form-control" placeholder="Enter Your Password">
+                    <div id="passwordAlert" class="alert alert-danger w-100 mt-2 d-none">
+                        Enter valid password *Minimum eight characters, at least one letter and one number:*
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <input id="repasswordInput" onkeyup="inputsValidation(this)" type="password" class="form-control" placeholder="Repassword">
+                    <div id="repasswordAlert" class="alert alert-danger w-100 mt-2 d-none">
+                        Enter valid repassword
+                    </div>
+                </div>
+            </div>
+            <button id="submitBtn" class="btn btn-outline-danger px-2 mt-3">Submit</button>
+        </div>
+    </div>
+
+
+    </div>
+</div>
+
+
+    <script src="JS/bootstrap.min.js"></script>
+    <!-- Add this script in the head or before the closing body tag -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="JS/main.js"></script>
+<script>
+    
+// Function to fetch and display categories
+
+
+
+</script>
+
+</body>
+</html>
